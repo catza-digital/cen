@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artesanías Bolivia | Llaveros de Lagartija con Sombrero de Saó</title>
+  <meta name="description" content="Llaveros artesanales en forma de lagartija con sombrero de saó hechos a mano en Santa Cruz, Bolivia. Regalos típicos, souvenirs y pedidos por mayor vía WhatsApp.">
+
+  <!-- SEO JSON-LD ESTRUCTURADO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Artesanías Bolivia",
+    "description": "Elaboración artesanal de llaveros en forma de lagartija con sombrero de saó hechos a mano.",
+    "telephone": "+59178914551",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santa Cruz de la Sierra",
+      "addressCountry": "BO"
+    }
+  }
+  </script>
+
+  <style>
+    /* 1. RESET Y TOKENS GLOBALES */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Paleta artesanal cálida con contraste WCAG AA (>= 4.5:1) */
+      --primary: #92400e;
+      --primary-hover: #78350f;
+      --accent: #0f766e;
+      --accent-hover: #115e59;
+      --bg: #fefce8;
+      --bg-alt: #fef3c7;
+      --surface: #ffffff;
+      --text: #1c1917;
+      --text-muted: #57534e;
+      --border: #fde68a;
+
+      /* Tipografía y Espaciado Fluido (clamp) */
+      --font-h1: clamp(1.9rem, 2.2vw + 1.35rem, 3.35rem);
+      --font-h2: clamp(1.45rem, 1.3vw + 1.1rem, 2.25rem);
+      --font-h3: clamp(1.15rem, 0.5vw + 1rem, 1.35rem);
+      --font-body: clamp(1rem, 0.25vw + 0.95rem, 1.125rem);
+      --space-section: clamp(3rem, 5vw + 1.5rem, 5.5rem);
+      --gutter: clamp(1rem, 2.2vw + 0.5rem, 2rem);
+
+      /* Elevaciones y Transiciones */
+      --shadow-sm: 0 2px 4px rgba(28, 25, 23, 0.06);
+      --shadow-md: 0 8px 16px -4px rgba(28, 25, 23, 0.1);
+      --shadow-lg: 0 16px 32px -8px rgba(146, 64, 14, 0.16);
+      --radius-md: 0.75rem;
+      --radius-lg: 1.25rem;
+      --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: var(--font-body);
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 2. JERARQUÍA TIPOGRÁFICA */
+    h1, h2, h3 {
+      line-height: 1.18;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    h1 { font-size: var(--font-h1); }
+    h2 { font-size: var(--font-h2); }
+    h3 { font-size: var(--font-h3); }
+
+    /* 3. LAYOUTS INTRÍNSECOS */
+    .container {
+      width: min(100% - (var(--gutter) * 2), 1140px);
+      margin-inline: auto;
+    }
+
+    section {
+      padding-block: var(--space-section);
+    }
+
+    /* 4. NAVEGACIÓN SUPERIOR */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(254, 252, 232, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding-block: 0.85rem;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background-color: var(--primary);
+      color: #ffffff;
+      border-radius: 0.5rem;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    /* 5. BOTONES ACCESIBLES (>= 44x44px) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      min-height: 48px;
+      min-width: 48px;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.65rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition);
+    }
+
+    .btn:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: #ffffff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background-color: var(--surface);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--bg-alt);
+      transform: translateY(-2px);
+    }
+
+    /* 6. HERO SECTION (LCP OPTIMIZADO) */
+    .hero {
+      padding-block: clamp(2.5rem, 5vw, 4.5rem);
+      background: radial-gradient(circle at top right, #fde68a 0%, transparent 55%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      align-items: center;
+      gap: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background-color: var(--bg-alt);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin-block-end: 1.1rem;
+    }
+
+    .hero-copy p {
+      color: var(--text-muted);
+      margin-block: 1.25rem 1.75rem;
+      max-width: 54ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    .trust-micro {
+      margin-block-start: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .stars {
+      color: #d97706;
+      letter-spacing: 1px;
+    }
+
+    .hero-visual {
+      background-color: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.25rem, 3vw, 2rem);
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      place-items: center;
+      aspect-ratio: 4 / 3;
+    }
+
+    .hero-visual svg {
+      width: 100%;
+      height: auto;
+      max-width: 380px;
+    }
+
+    /* 7. BARRA DE VALIDACIÓN ARTESANAL */
+    .trust-bar {
+      background-color: var(--primary);
+      color: #ffffff;
+      padding-block: 1.25rem;
+    }
+
+    .trust-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* 8. MATRIZ DE BENEFICIOS CON CONTAINER QUERIES */
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin-inline: auto;
+      margin-block-end: clamp(2rem, 4vw, 3rem);
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      margin-block-start: 0.75rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+      gap: var(--gutter);
+    }
+
+    .card-container {
+      container-type: inline-size;
+      container-name: benefit-card;
+    }
+
+    .benefit-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.65rem;
+      height: 100%;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    @container benefit-card (min-width: 420px) {
+      .benefit-card {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 1.25rem;
+        align-items: start;
+      }
+    }
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 0.65rem;
+      background-color: var(--bg-alt);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      margin-block-end: 1rem;
+    }
+
+    .benefit-card p {
+      color: var(--text-muted);
+      margin-block-start: 0.5rem;
+      font-size: 0.96rem;
+    }
+
+    /* 9. ACORDEÓN FAQ ACCESIBLE */
+    .faq-wrap {
+      max-width: 780px;
+      margin-inline: auto;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .faq-item {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .faq-trigger {
+      width: 100%;
+      min-height: 54px;
+      padding: 1rem 1.35rem;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      text-align: start;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .faq-trigger:hover {
+      background-color: var(--bg-alt);
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+
+    .faq-trigger[aria-expanded="true"] .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-panel {
+      padding: 0 1.35rem 1.25rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      padding-block-start: 0.9rem;
+    }
+
+    /* 10. CAJA DE CONVERSIÓN / COTIZACIÓN WHATSAPP */
+    .cta-section {
+      background-color: var(--bg-alt);
+      border-block: 1px solid var(--border);
+    }
+
+    .quote-box {
+      background-color: var(--surface);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.5rem, 4vw, 2.75rem);
+      max-width: 720px;
+      margin-inline: auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .quote-form {
+      display: grid;
+      gap: 1.15rem;
+      margin-block-start: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .field label {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    .field input,
+    .field select {
+      min-height: 46px;
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid #d6d3d1;
+      border-radius: 0.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      background-color: #ffffff;
+    }
+
+    /* 11. FOOTER */
+    .site-footer {
+      padding-block: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand">
+        <span class="brand-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3L3 9l9 6 9-6-9-6z"/>
+            <path d="M3 15l9 6 9-6"/>
+          </svg>
+        </span>
+        <span>Artesanías Bolivia</span>
+      </a>
+      <a href="#cotizar" class="btn btn-accent">Pedir por WhatsApp</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- 1. HERO SECTION -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="badge-pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Hecho a mano en Santa Cruz, Bolivia
+          </span>
+          <h1 id="hero-title">Llaveros de Lagartija con Sombrero de Saó: Identidad Camba en tus Manos</h1>
+          <p>Lleva contigo o regala el símbolo más querido del oriente boliviano. Cada pieza está tejida y detallada artesanalmente con acabados resistentes para llaves, mochilas y recuerdos inolvidables.</p>
+          <div class="hero-actions">
+            <a href="https://wa.me/59178914551?text=Hola%20Artesan%C3%ADas%20Bolivia%2C%20me%20interesan%20los%20llaveros%20de%20lagartija%20con%20sombrero%20de%20sa%C3%B3." target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+              Consultar Disponibilidad
+            </a>
+            <a href="#beneficios" class="btn btn-outline">Ver Detalles</a>
+          </div>
+          <div class="trust-micro">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span>Cotización directa por unidad o al por mayor</span>
+          </div>
+        </div>
+
+        <!-- Ilustración Vectorial Hero (Sin lazy-loading, dimensiones explícitas para CWV LCP/CLS) -->
+        <div class="hero-visual">
+          <svg width="380" height="285" viewBox="0 0 380 285" role="img" aria-label="Ilustración artesanal de llavero de lagartija con sombrero de saó de Artesanías Bolivia" fetchpriority="high">
+            <defs>
+              <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fef3c7"/>
+                <stop offset="100%" stop-color="#fde68a"/>
+              </linearGradient>
+              <linearGradient id="saoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#f59e0b"/>
+                <stop offset="100%" stop-color="#b45309"/>
+              </linearGradient>
+            </defs>
+            <rect width="380" height="285" rx="20" fill="url(#bgGrad)"/>
+            <!-- Argolla metálica del llavero -->
+            <circle cx="190" cy="36" r="18" fill="none" stroke="#57534e" stroke-width="5"/>
+            <circle cx="190" cy="36" r="13" fill="none" stroke="#a8a29e" stroke-width="2"/>
+            <rect x="186" y="52" width="8" height="16" rx="4" fill="#57534e"/>
+            <!-- Cola curva de la lagartija -->
+            <path d="M190 215 C 190 250, 245 258, 252 232 C 258 212, 232 208, 234 224" fill="none" stroke="#0f766e" stroke-width="14" stroke-linecap="round"/>
+            <!-- Patas -->
+            <path d="M155 142 L126 124 M126 124 L116 116 M126 124 L114 128" stroke="#0f766e" stroke-width="8" stroke-linecap="round"/>
+            <path d="M225 142 L254 124 M254 124 L264 116 M254 124 L266 128" stroke="#0f766e" stroke-width="8" stroke-linecap="round"/>
+            <path d="M158 188 L128 206 M128 206 L116 204 M128 206 L120 216" stroke="#0f766e" stroke-width="8" stroke-linecap="round"/>
+            <path d="M222 188 L252 206 M252 206 L264 204 M252 206 L260 216" stroke="#0f766e" stroke-width="8" stroke-linecap="round"/>
+            <!-- Cuerpo tejido en cuentas/mostacillas -->
+            <ellipse cx="190" cy="168" rx="36" ry="52" fill="#0f766e"/>
+            <ellipse cx="190" cy="168" rx="22" ry="38" fill="#14b8a6"/>
+            <circle cx="190" cy="146" r="5" fill="#fef08a"/>
+            <circle cx="190" cy="168" r="5" fill="#fef08a"/>
+            <circle cx="190" cy="190" r="5" fill="#fef08a"/>
+            <!-- Cabeza -->
+            <ellipse cx="190" cy="106" rx="26" ry="22" fill="#0f766e"/>
+            <circle cx="177" cy="105" r="4.5" fill="#ffffff"/>
+            <circle cx="177" cy="105" r="2.2" fill="#1c1917"/>
+            <circle cx="203" cy="105" r="4.5" fill="#ffffff"/>
+            <circle cx="203" cy="105" r="2.2" fill="#1c1917"/>
+            <!-- Sombrero de Saó -->
+            <ellipse cx="190" cy="86" rx="56" ry="14" fill="url(#saoGrad)" stroke="#78350f" stroke-width="2"/>
+            <path d="M158 85 C 162 56, 218 56, 222 85 Z" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+            <path d="M161 79 Q 190 85 219 79" fill="none" stroke="#991b1b" stroke-width="4"/>
+            <!-- Etiqueta inferior -->
+            <text x="190" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#78350f">ARTESANÍAS BOLIVIA • SANTA CRUZ</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. BARRA DE VALIDACIÓN SOCIAL -->
+    <div class="trust-bar" role="region" aria-label="Garantías de artesanía">
+      <div class="container">
+        <ul class="trust-list">
+          <li class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            100% Elaboración Artesanal
+          </li>
+          <li class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Diseño Típico Cruceño Único
+          </li>
+          <li class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Pedidos al Detalle y Por Mayor
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3. MATRIZ DE BENEFICIOS -->
+    <section id="beneficios" aria-labelledby="beneficios-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="beneficios-title">¿Por qué elegir nuestros llaveros artesanales?</h2>
+          <p>Combinamos tradición cultural cruceña con acabados firmes diseñados para acompañarte todos los días.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="card-container">
+            <div class="benefit-card">
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Símbolo Cultural Auténtico</h3>
+                <p>La lagartija con sombrero de saó representa la alegría y hospitalidad de Santa Cruz en un detalle lleno de color.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card-container">
+            <div class="benefit-card">
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </div>
+              <div>
+                <h3>El Regalo o Recuerdo Ideal</h3>
+                <p>Perfecto para obsequiar a visitantes, turistas, familiares en el exterior o recuerdos de eventos corporativos y culturales.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card-container">
+            <div class="benefit-card">
+              <div class="icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Variedad de Colores y Acabados</h3>
+                <p>Tejidos a mano con materiales firmes y argolla metálica resistente para llaves, carteras, mochilas o retrovisores.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. ACORDEÓN FAQ ACCESIBLE -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="faq-title">Preguntas Frecuentes</h2>
+          <p>Resolvemos tus dudas sobre pedidos, entregas y cotizaciones en Santa Cruz y toda Bolivia.</p>
+        </div>
+
+        <div class="faq-wrap" id="faq-accordion">
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-1">
+              <span>¿Venden por unidad y también al por mayor para recuerdos o tiendas?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faq-panel-1" class="faq-panel" hidden>
+              <p>Sí. Atendemos pedidos desde una unidad hasta lotes al por mayor para ferias, eventos empresariales, bodas, regalos institucionales y tiendas de souvenirs. Escríbenos por WhatsApp con la cantidad que necesitas para enviarte tu cotización.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-2">
+              <span>¿Cómo realizan las entregas en Santa Cruz de la Sierra?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faq-panel-2" class="faq-panel" hidden>
+              <p>Coordinamos entregas rápidas dentro de Santa Cruz de la Sierra mediante punto de encuentro o envío por delivery, además de envíos interdepartamentales a toda Bolivia previa coordinación por WhatsApp.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-3">
+              <span>¿Puedo elegir los colores de los llaveros de lagartija?</span>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faq-panel-3" class="faq-panel" hidden>
+              <p>Sí. Contamos con combinaciones clásicas (verde cruceño, colores vivos y tonos tierra) y también podemos preparar combinaciones personalizadas según disponibilidad y tiempo de elaboración artesanal.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CAJA DE COTIZACIÓN Y CONVERSIÓN DIRECTA -->
+    <section id="cotizar" class="cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="quote-box">
+          <div class="section-header" style="margin-block-end: 0;">
+            <h2 id="cta-title">Solicita tu Cotización por WhatsApp</h2>
+            <p>Indica qué cantidad o tipo de pedido buscas y te responderemos directamente al instante.</p>
+          </div>
+
+          <form class="quote-form" id="whatsapp-form">
+            <div class="form-row">
+              <div class="field">
+                <label for="buyer-name">Tu nombre</label>
+                <input type="text" id="buyer-name" name="buyerName" placeholder="Ej. Carla Méndez" required maxlength="60">
+              </div>
+              <div class="field">
+                <label for="order-type">Tipo de pedido</label>
+                <select id="order-type" name="orderType">
+                  <option value="Compra por unidad / regalo personal">Compra por unidad / regalo personal</option>
+                  <option value="Pedido al por mayor / evento">Pedido al por mayor / evento</option>
+                  <option value="Colores personalizados">Colores personalizados</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="order-qty">Cantidad aproximada o consulta</label>
+              <input type="text" id="order-qty" name="orderQty" placeholder="Ej. 12 llaveros de lagartija con sombrero de saó" required maxlength="120">
+            </div>
+
+            <button type="submit" class="btn btn-accent" style="width: 100%;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+              Enviar Consulta a WhatsApp (+591 78914551)
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 6. FOOTER MINIMALISTA -->
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Artesanías Bolivia</strong> — Llaveros artesanales en forma de lagartija con sombrero de saó.</p>
+      <p>Santa Cruz de la Sierra, Bolivia • WhatsApp: +591 78914551</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Acordeón FAQ Accesible mediante delegación de eventos (INP optimizado)
+      const accordion = document.getElementById('faq-accordion');
+      if (accordion) {
+        accordion.addEventListener('click', (event) => {
+          const trigger = event.target.closest('.faq-trigger');
+          if (!trigger) return;
+
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          const panelId = trigger.getAttribute('aria-controls');
+          const panel = document.getElementById(panelId);
+
+          trigger.setAttribute('aria-expanded', String(!isExpanded));
+          if (panel) {
+            panel.hidden = isExpanded;
+          }
+        });
+      }
+
+      // 2. Despacho seguro de cotización a WhatsApp (OWASP XSS Prevention)
+      const whatsappForm = document.getElementById('whatsapp-form');
+      if (whatsappForm) {
+        whatsappForm.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          const nameInput = document.getElementById('buyer-name');
+          const typeInput = document.getElementById('order-type');
+          const qtyInput = document.getElementById('order-qty');
+
+          const cleanName = nameInput.value.trim().slice(0, 60);
+          const cleanType = typeInput.value.trim().slice(0, 60);
+          const cleanQty = qtyInput.value.trim().slice(0, 120);
+
+          const messageLines = [
+            'Hola *Artesanías Bolivia*, solicito cotización:',
+            `• Nombre: ${cleanName}`,
+            `• Modalidad: ${cleanType}`,
+            `• Detalle / Cantidad: ${cleanQty}`,
+            '• Producto: Llaveros de lagartija con sombrero de saó'
+          ];
+
+          const encodedText = encodeURIComponent(messageLines.join('\n'));
+          const targetUrl = `https://wa.me/59178914551?text=${encodedText}`;
+
+          if (targetUrl.startsWith('https://wa.me/')) {
+            window.open(targetUrl, '_blank', 'noopener,noreferrer');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
